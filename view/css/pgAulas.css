@@ -1,0 +1,237 @@
+/* ----------------- MENU DE ESCOLHA DE JOGO --------------------- */
+.escolha_jogos{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color:#2B0D51;
+}
+
+.jogos{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.jogos li{
+    flex-shrink: 1;
+    flex-basis: 15%;
+    padding: 12px 16px;
+}
+
+.jogos span{
+    font-size: 1.3rem;
+    color: white;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.jogos li:hover{
+    background-color: #2b0e37;
+}
+
+.jogos li:last-child:hover{
+    background-color: #2B0D51;
+}
+
+.escolha_jogos img{
+    height: 50px;
+    width:50px;
+}
+
+/* ----------------- CONTEUDO: ADICIONAR AULAS --------------------- */
+.cadastro_aulas{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:#2B0D51;
+    color: rgb(235, 176, 67);
+    padding: 22px 24px;
+    top:75px;
+    right:49px;
+    z-index: 2;
+    border-radius: 20px;
+}
+
+
+/* ----------------- CONTEUDO: VIDEOS e FILTRO --------------------- */
+.videos_filtros{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 12px 16px;
+    margin: 0;
+}
+
+.videos_filtros .video{flex-basis: 80%;}
+
+.filtro{
+    background-color: rgb(235, 176, 67);
+    color: white;
+    margin: 15px;
+    padding: 12px 16px;
+    border-radius: 15px;
+}
+
+.filtro h3{
+    font-size: 1.5em;
+    color: #C716F7;
+    padding: 0px;
+    margin: 0;
+    text-align: center;
+}
+
+.filtro hr{
+    margin: 8px;
+    color: #2B0D24;
+    width: 90%;
+    height: 3px;
+}
+
+#fechar{
+    height: 25px;
+    width: 25px;
+    display:none;
+    position: absolute;
+    top:10px;
+    right: 10px;
+}
+
+#fechar2{
+    height: 25px;
+    width: 25px;
+    display:none;
+    position: absolute;
+    top:10px;
+    right: 10px;
+}
+
+.add_aula{
+    display: flex;
+    justify-content:flex-end;
+    align-items: flex-end;
+    height: 60px;
+    width: 100%;
+    
+}
+
+.add_aula h4{color: white; font-size: 1.2rem;margin-right: 15px;}
+
+
+#add{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-left: 0px;
+    opacity:1;
+    /*float: right;*/
+}
+
+#add:hover{
+    opacity: 1.5;
+}
+
+.btn-busca{
+    background-color: #16f787;
+    border-radius: 4px; 
+    color: white;
+    padding: 12px 12px;
+    width: 45%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #168256;
+}
+
+.btn-busca:hover{
+    background-color: #168256;
+    border: 1px solid #16f787;
+}
+
+#caixa_busca{width: 60%;}
+
+
+.video{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 12px 16px;
+    color:#16f787;
+}
+
+.video .video_aulas{flex-basis: 25%; flex-shrink: 1;}
+.video_aulas{
+    margin-bottom: 25px;
+    margin-top: 25px;
+    text-align: left;
+}
+
+.video_aulas h5{
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+.video iframe{
+    width: 400px;
+    height: 225px ; 
+}
+
+
+
+
+/* ----------------- BREAKPOINTS --------------------- */
+@media (min-width: 200px){
+    .jogos{justify-content: space-around; align-items: center;}
+    .jogos span{font-size: 1.1rem;}
+    .jogos li{flex-basis: 20%;}
+    .escolha_jogos img{height: 40px; width:40px; }
+    #filter{display:block;}
+    #filter img{height: 55px; width: 55px;}
+    
+        /*   Videos e Filtro  */
+    .videos_filtros .video{flex-basis: 100%;}
+    .filtro{position:absolute;right: 50px; top: 50px; display:none;}
+    .cadastro_aulas{right: 100px;}
+}
+@media (min-width: 405px){
+    .jogos{justify-content: space-around;align-items: center;}
+    .jogos span{font-size: 1.1rem;}  
+    .jogos li{flex-basis: 20%;}
+    .escolha_jogos img{height: 45px; width:45px; }
+    #filter{display:block;}
+    #filter img{height: 55px; width: 55px;}
+    
+        /*   Videos e Filtro  */
+    .videos_filtros .video{flex-basis: 100%;}
+    .filtro{position:absolute;right: 50px; top: -15px; display:none;}
+    .cadastro_aulas{top:60px;}
+}
+@media (min-width: 805px){
+    .jogos{justify-content: center;align-items: center;}
+    .jogos span{font-size: 1.3rem;}
+    .jogos li{flex-basis: 15%;}
+    .escolha_jogos img{height: 50px; width:50px; }
+    #filter{display:block;}
+    #filter img{height: 48px; width: 48px;}
+    
+        /*   Videos e Filtro  */
+    .videos_filtros .video{flex-basis: 100%;}
+    .cadastro_aulas{top:70px;}
+    
+}
+@media (min-width: 1025px){
+    #filter{display:block;}
+        /*   Videos e Filtro  */
+    .videos_filtros .video{flex-basis: 100%;}
+    .cadastro_aulas{top:100px;}
+}

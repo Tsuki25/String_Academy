@@ -1,0 +1,178 @@
+*{
+  font-family: "montserrat",sans-serif;
+}
+body{
+  margin: 0;
+  padding: 0;
+  background: url(../img/Viper.png) no-repeat center;
+  background-size: cover;
+}
+.page{
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  height: 2%;
+  /*float: left;*/
+}
+
+.col{
+  flex: 1;
+  margin-top: 275px;
+  /*height: 100vh;*/
+  position: relative;
+}
+
+.time{
+  color: white;
+  text-transform: uppercase;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+}
+.middle{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-150%);
+  text-align: center;
+}
+.time span{
+  padding: 0 14px;
+  font-size: 10px;
+  color: #C716F7;
+}
+.time span div{
+  font-size: 40px;
+  color: white;
+}
+
+@media screen and (max-width :900px){
+  .col{
+    flex: 100%;
+  }
+}
+
+/* Até aqui, é o final da Viper */
+
+/* Formulário */
+
+.contato{
+  background-size: cover;
+  padding: 100px 0;
+  image-rendering: pixelated;
+  width: 50%; 
+  /*float: right;*/
+}
+
+.contato h1{
+  text-align: center;
+  color:rgb(235, 176, 67);
+}
+
+.contato h4{
+  text-align: center;
+  color: #ddd;
+}
+.border{
+  width: 120px;
+  height: 10px;
+  background: #34495e;
+  margin: 40px auto;
+}
+.formcontato{
+  max-width: 600px;
+  margin: auto;
+  padding: 0 10px;
+  overflow: hidden;
+  font-family: "montserrat",sans-serif;
+}
+
+.contato h3{
+  color: white;
+  padding: 30px;
+}
+
+.contato h3 span{
+    color:rgb(235, 176, 67);
+}
+
+.campoForm{
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 18px 0px;
+  border: 0;
+  background: black;
+  padding: 20px 20px;
+  outline: none;
+  color: #ddd;
+  transition: 0.5s;
+  border-radius: 50px;
+}
+
+.campoForm:focus{
+  box-shadow: 0 0 10px 4px #34495e;
+}
+
+textarea.campoForm{
+  resize: none;
+  height: 100px;
+}
+
+.botaoEnvio{
+  border-radius:40px;
+  background-color: #311647;
+  border: none;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 36%;
+  width: 150px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.botaoEnviar{
+  background-color: #311647; 
+  color: white; 
+  border: 1px solid #1e4716;
+}
+
+.botaoEnviar:hover{
+  background-color: #16f787;
+  color: white;
+}
+
+/*@media (min-width: 374px){
+  .botaoEnvio{text-align: center;} 
+  .contato h1{font-size: 2.5rem;}
+}*/
+
+/* ----------------------- MEDIA QUERYS ------------------------- */
+
+@media (min-width: 200px){
+    .contato{width: 90%;}
+    .time span{font-size: 1.2em;}
+    .time span div{font-size:1.1em;}
+    #seconds{display:none;}
+}
+@media (min-width: 405px){
+    .page{height: 100px;}
+    .contato{width:80%;}
+    .col{margin-top:240px;}
+    #seconds{display:none;}
+    .time span{font-size: 1.5em;}
+    .time span div{font-size: 1.4em;}
+}
+@media (min-width: 805px){
+    .time span{font-size: 1.8em;}
+    .time span div{font-size: 1.4em;}
+    #seconds{display:block;}
+}
+@media (min-width: 1025px){
+    .time span{font-size: 1.9em;}
+    .time span div{font-size: 1.5em;}
+    #seconds{display:block;}
+}
+

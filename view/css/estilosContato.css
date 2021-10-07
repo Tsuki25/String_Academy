@@ -1,0 +1,103 @@
+/*Modificação da div contato*/
+.contato{
+  background: url(../img/bannerContato.png) no-repeat center;
+  background-size: cover;
+  padding: 100px 0;
+  image-rendering: pixelated;
+
+}
+
+/*Modificação do H1 da div contato*/
+.contato h1{
+
+  text-align: center;
+  color: #ddd;
+
+}
+
+/*Modificação do Border*/
+.border{
+
+  width: 120px;
+  height: 10px;
+  background: #34495e;
+  margin: 40px auto;
+
+}
+
+/*Modificação do Form ao todo */
+.formcontato{
+
+  max-width: 600px;
+  margin: auto;
+  padding: 0 10px;
+  overflow: hidden;
+  font-family: "montserrat",sans-serif;
+
+}
+
+/*Alterações na área de escrita nas primeiras partes do Form*/
+.campoForm{
+
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 18px 0px;
+  border: 0;
+  background: #111;
+  padding: 20px 20px;
+  outline: none;
+  color: #ddd;
+  transition: 0.5s;
+
+}
+
+/*Ao clickar para escrever, ira modificar a sombra do contorno da área de texto*/
+.campoForm:focus{
+
+  box-shadow: 0 0 10px 4px #34495e;
+
+}
+
+/* Modificações da área de Mensagem do textarea*/
+textarea.campoForm{
+
+  resize: none;
+  height: 100px;
+
+}
+
+/*Modificações no botão de envio*/
+.botaoEnvio{
+  float: right;
+  background-color: #311647;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+/* Modificações no Hover ao passar o mouse pelo botão de envio*/
+.botaoEnviar{
+  background-color: black; 
+  color: #311647; 
+  border: 2px solid #311647;
+}
+
+.botaoEnviar:hover{
+  background-color: #311647;
+  color: #16f787;
+}
+
+/* BreakPoints */
+@media (min-width: 374px){
+  .botaoEnvio{text-align: center;} 
+  .contato h1{font-size: 2.5rem;}
+}
+
