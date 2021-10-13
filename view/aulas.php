@@ -76,10 +76,18 @@
             <article class="video">
                <?php
                     $jogo_filtro = '';
-                    if(isset($_GET['jogo_filtro'])) {//SE UM FILTRO FOI ESCOLHIDO
-                        $jogo_filtro = addslashes($_GET['jogo_filtro']);//PEGA O VALOR PASSADO PELO BOTÃO
+                    if(isset($_GET['jogo_filtro'])) {//SE A PESSOA CLICKOU NO BOTÃO EDITAR
+                        $jogo_filtro = addslashes($_GET['jogo_filtro']);//PEGA O VALOR PASSADO PELO BOTÃO EDITAR SELECIONADO
                     }
-                    $p->carregarVideos($jogo_filtro); //CARREGA OS VIDEOS NA TELA
+
+                    if (isset($_GET['pagina'])) {
+                        $pagina = addslashes($_GET['pagina']);
+                        $pg = $pagina;
+                    } else {
+                        $pg = 1;
+                    }
+                    
+                    $p->carregarVideos($jogo_filtro,9,$pg); //RECEBE OS VALORES DO BANCO DE DADOS PARA EXIBIR NA TELA 
                ?>
             </article>
         </section>

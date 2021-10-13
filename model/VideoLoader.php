@@ -37,11 +37,12 @@ class VideoLoader {
         }
     }
     
-    public function carregarVideos($jogo){
-        //PARA CADA CASO OS VIDEOS EXIBIDOS NA TELA E SEUS RESPECTIVOS TITULOS SÃO MODIFICADOS    
+        public function carregarVideos($jogo,$reg_pag, $pg){
+        //PARA CADA CASO OS VIDEOS EXIBIDOS NA TELA E SEUS RESPECTIVOS TITULOS SÃO MODIFICADOS 
+        $inicio = ($pg - 1) * $reg_pag;
         
-       if (!empty($jogo)){
-            $cmd = $this->pdo->prepare( "SELECT titulo, url FROM Video_Aulas WHERE jogo = :j;");//PEGA OS VIDEOS POR CATEGORIA
+        if (!empty($jogo)){
+            $cmd = $this->pdo->prepare( "SELECT titulo, url FROM Video_Aulas WHERE jogo = :j LIMIT $inicio,$reg_pag;");//PEGA OS VIDEOS POR CATEGORIA
             $cmd->bindValue(":j", $jogo);
             $cmd->execute();
             
@@ -57,10 +58,44 @@ class VideoLoader {
                 }
             }
             
-        }else{
-            $cmd = $this->pdo->prepare( "SELECT titulo, url FROM Video_Aulas;");//PEGA TODOS OS VIDEOS
-            $cmd->execute();
+            $total = $this->pdo->prepare( "SELECT * FROM Video_Aulas WHERE jogo = '$jogo';");
+            $total->execute();
+            $tp = $total->rowCount()/$reg_pag;
+            $tp = ceil($tp);
+
             
+            echo "<div class='paginacao'>";
+            $anterior = $pg - 1;
+            $proximo = $pg + 1;
+            if($pg == $tp && $anterior == 0){
+                echo "<a href='?jogo_filtro=$jogo&pagina=$anterior' style='pointer-events: none; opacity: 0.5;'><img src='../view/img/back.png' style='widht:50px; height:50px;'></a>"
+                    . " | " .
+                    "<a href='?jogo_filtro=$jogo&pagina=$proximo' style='pointer-events: none; opacity: 0.5;'><img src='../view/img/next.png' style='widht:50px; height:50px;'></a>".
+                    "</div>";
+                
+            }else if($pg == $tp){
+                echo "<a href='?jogo_filtro=$jogo&pagina=$anterior'><img src='../view/img/back.png' style='widht:50px; height:50px;'></a>"
+                    . " | " .
+                    "<a href='?jogo_filtro=$jogo&pagina=$proximo' style='pointer-events: none; opacity: 0.5;'><img src='../view/img/next.png' style='widht:50px; height:50px;'></a>".
+                    "</div>";
+                
+            }else if( $anterior == 0){
+                echo "<a href='?jogo_filtro=$jogo&pagina=$anterior' style='pointer-events: none; opacity: 0.5;'><img src='../view/img/back.png' style='widht:50px; height:50px;'></a>"
+                    . " | " .
+                    "<a href='?jogo_filtro=$jogo&pagina=$proximo' ><img src='../view/img/next.png' style='widht:50px; height:50px;'></a>".
+                    "</div>";
+                
+            }else{
+                echo "<a href='?jogo_filtro=$jogo&pagina=$anterior'><img src='../view/img/back.png' style='widht:50px; height:50px;'></a>"
+                    . " | " .
+                    "<a href='?jogo_filtro=$jogo&pagina=$proximo'><img src='../view/img/next.png' style='widht:50px; height:50px;'></a>".
+                    "</div>";
+            }
+            
+        }else{
+            $cmd = $this->pdo->prepare( "SELECT titulo, url FROM Video_Aulas LIMIT $inicio,$reg_pag;");//PEGA TODOS OS VIDEOS
+            $cmd->execute();
+                       
             if ($cmd->rowCount()>0) {//Enquanto tiverem linhas na tabela
                 foreach($cmd as $res){
                     $titulo = $res['titulo'];
@@ -71,6 +106,39 @@ class VideoLoader {
                         <h5>$titulo</h5>
                     </div>";
                 }
+            }
+            
+            $total = $this->pdo->prepare("SELECT * FROM Video_Aulas;");
+            $total->execute();
+            $tp = $total->rowCount()/$reg_pag;
+            $tp = ceil($tp);
+            
+            echo "<div class='paginacao'>";
+            $anterior = $pg - 1;
+            $proximo = $pg + 1;
+            if($pg == $tp && $anterior == 0){
+                echo "<a href='?pagina=$anterior' style='pointer-events: none; opacity: 0.5;'><img src='../view/img/back.png' style='widht:50px; height:50px;'></a>"
+                    . " | " .
+                    "<a href='?pagina=$proximo' style='pointer-events: none; opacity: 0.5;'><img src='../view/img/next.png' style='widht:50px; height:50px;'></a>".
+                    "</div>";
+                
+            }else if($pg == $tp){
+                echo "<a href='?pagina=$anterior'><img src='../view/img/back.png' style='widht:50px; height:50px;'></a>"
+                    . " | " .
+                    "<a href='?pagina=$proximo' style='pointer-events: none; opacity: 0.5;'><img src='../view/img/next.png' style='widht:50px; height:50px;'></a>".
+                    "</div>";
+                
+            }else if($anterior == 0){
+                echo "<a href='?jogo_filtro=$jogo&pagina=$anterior' style='pointer-events: none; opacity: 0.5;'><img src='../view/img/back.png' style='widht:50px; height:50px;'></a>"
+                    . " | " .
+                    "<a href='?jogo_filtro=$jogo&pagina=$proximo' ><img src='../view/img/next.png' style='widht:50px; height:50px;'></a>".
+                    "</div>";
+                    
+            }else{
+                echo "<a href='?pagina=$anterior'><img src='../view/img/back.png' style='widht:50px; height:50px;'></a>"
+                    . " | " .
+                    "<a href='?pagina=$proximo'><img src='../view/img/next.png' style='widht:50px; height:50px;'></a>".
+                    "</div>";
             }
         }
     }

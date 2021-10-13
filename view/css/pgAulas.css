@@ -176,6 +176,13 @@
     text-align: left;
 }
 
+.video .paginacao{flex-basis: 70%; flex-shrink: 1;}
+.paginacao{
+    margin-bottom: 25px;
+    margin-top: 25px;
+    text-align: center;
+}
+
 .video_aulas h5{
     padding: 10px;
     font-size: 1.2rem;
