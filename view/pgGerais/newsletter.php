@@ -1,9 +1,9 @@
 <section class="newsletter">
     <ul>
         <p>Conheça</p>
-        <li><a href="Jogos.php">Jogos</a></li>
+        <li><a href="aulas.php">Aulas</a></li>
+        <li><a href="campeonato.php">Campeonato</a></li>
         <li><a href="Contato.html">Contato</a></li>
-        <li><a href="sobreNos.html">Sobre</a></li>
     </ul>
 
     <ul class="social">

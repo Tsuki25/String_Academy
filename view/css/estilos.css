@@ -123,6 +123,7 @@ header li:last-child{margin-right: 0;}
 	align-items: stretch;
 	width: 100%;
 	background-color: #311647;
+        margin-bottom: 30px;
 }
 
 .conteudoPT2{
@@ -137,7 +138,7 @@ header li:last-child{margin-right: 0;}
 .espacamento{flex-grow: 1; flex-shrink: 1; flex-basis: 15%; margin: 0px 25px; margin-bottom: 30px;}
 .conteudo div:first-child{margin-left: 70px;}
 .conteudo div:last-child{margin-right: 70px;}
-.card{flex-grow: 1; flex-shrink: 1; flex-basis: 30%; margin: 0px 25px; margin-bottom: 30px; background-color: black;}
+.card{flex-grow: 1; flex-shrink: 1; margin: 0px 25px; margin-bottom: 30px; background-color: black;}
 .card img{height: 400px;}
 .card-text{font-family: 'Quicksand', sans-serif; font-size: 1.25rem; text-align: justify; color: #16f787}
 
@@ -152,12 +153,6 @@ header li:last-child{margin-right: 0;}
     
 }
 .itens div:last-child{margin-bottom: 35px;}
-
-
-/*
-#part1{background-color: cor de fundo != do site}
-#part2{background-color: cor de fundo != do site e da #part1}
-#part1{background-color: cor de fundo != do site, de #par1 e #part2}*/
 
 /* NEWSLETTER */
 .newsletter{
@@ -184,14 +179,19 @@ header li:last-child{margin-right: 0;}
 
 /* PAGINA --> Jogos */
 .marginTop{margin-top: 75px;}
-.pgJogos a{opacity: 1;}
-.pgJogos img{height: 300px; transition: all 0.5s;cursor: pointer;}
+.pgJogos a{opacity: 1; width: 100%;}
+.pgJogos img{height: 300px; transition: all 0.5s;cursor: pointer; }
 .pgJogos img:hover{-webkit-transform: scale(1.08); transform: scale(1.08);}
 
 .texto{padding: 0px 25px; margin-bottom: 16px; text-align: justify;  font-size: 1.5rem; color: white;}
 .texto p{margin: 0.25%;font-family: 'Quicksand', sans-serif;}
 
 
+#part1{background-color: #1D0033;}
+#part1 .divisoria{background-color:#1D0033;}
+#part2{background-color: #311647;}
+#part3{background-color: #1D0033; height: 700px}
+#part3 .divisoria{background-color:#1D0033;}
 
 
 /* BreakPoints */
@@ -210,14 +210,15 @@ header li:last-child{margin-right: 0;}
         #primeiraDivisoria{padding-top: 65px;}
 	.conteudo{flex-direction: column;}
         .espacamento{flex-basis: 10%;}
-	.card{margin: 0px 25px; margin-bottom: 35px;}
+	.card{margin: 0px 25px; margin-bottom: 35px; width: 300px; }
         .pgJogos {flex-direction: column; border:none; height: 325px; margin-left: 100px; margin-right: 100px;}
 	.pgJogos img{height: 325px; }
 	.texto span{font-size: 0.9rem;}
 	.texto p{color: white; font-size: 1rem;}
 	.marginTop{margin-top: 50px; }
         .itens{margin:0px 5%;}
-        .itens iframe{width:300px ;height:200px ;}
+        .itens iframe{width:400px ;height:300px ;}
+        .itens img{width:300px ;height:250px ;}
         
 
 	/* Newsletter */
@@ -245,11 +246,12 @@ header li:last-child{margin-right: 0;}
         #primeiraDivisoria{padding-top: 65px;}
 	.conteudo{flex-direction: column;}
         .espacamento{flex-basis: 10%;}
-	.card{margin: 0px 25px;margin-bottom: 35px;}
-        .pgJogos {flex-direction: row; border:none; height: 350px;margin-left: 70px; margin-right: 70px;}
+	.card{margin: 0px 25px;margin-bottom: 35px; width: 325px;}
+        .pgJogos {flex-direction: row; border:none; height: 325px; margin-left: 70px; margin-right: 70px;}
 	.pgJogos img{height: 325px;}
 	.texto p{color: white; font-size: 1rem;}
-        .itens iframe{width:300px ;height:500px ;}
+        .itens iframe{width:300px ;height:400px ;}
+        .itens img{width:300px ;height:250px ;}
         .itens{margin:0px 5%;}
 
 	
@@ -276,14 +278,15 @@ header li:last-child{margin-right: 0;}
         #primeiraDivisoria{padding-top: 65px;}
 	.conteudo{flex-direction: row;}
         .espacamento{flex-basis: 15%;}
-	.card{margin: 0px 25px; margin-bottom: 35px;}
-        .pgJogos {flex-direction: row; border:none; height: 325px;}
-	.pgJogos img{height: 325px;}
+	.card{margin: 0px 25px; margin-bottom: 35px; width: 400px;}
+        .pgJogos {flex-direction: row; border:none; height: 350px;}
+	.pgJogos img{height: 350px;}
         .texto{width: 70%;}
 	.texto span{font-size: 1.2rem;}
 	.texto p{color: white; font-size: 1.3rem;}
         .itens{margin:0px 8%;}
         .itens iframe{width:600px ;height:500px ;}
+        .itens img{width:350px ;height:300px ;}
         
 
 

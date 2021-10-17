@@ -22,8 +22,8 @@
         ?>
         <!-- ----------Banner-------------- -->
         <section class="hero">
-            <h1>"Frase de expressão da empresa"</h1>
-            <a class="btn" href="Jogos.php">Saiba mais</a>
+            <h1>"Aqui a evolução acontece"</h1>
+            <a class="btn" href="aulas.php">Saiba mais</a>
         </section>
 
         <div class="divisoria " id="primeiraDivisoria"> 
@@ -36,16 +36,13 @@
              <div class="espacamento"></div>
              
             <button class="card pgJogos">
-                <a href="aulas.php"><img src="img/Academy.png" class="card-img-top img" alt="Academy"></a>
+                <a href="aulas.php"><img src="img/Academy.png" class="card-img-top" alt="Academy"></a>
             </button>
              
             <button class="card pgJogos" >
                 <a href="campeonato.php"><img src="img/Torneio.png" class="card-img-top" alt="Torneios"></a>
             </button>
 
-            <button class="card pgJogos" >
-                <a href="#jogo3"><img src="img/Evolucao.png" class="card-img-top" alt="Evolução"></a>
-            </button>
             <div class="espacamento"></div>
         </section>
         
@@ -81,14 +78,14 @@
                         <!-- ------------------Evolução------------------------ -->
             <div class="itens" id="part3">
                 <div class="divisoria">
-                    <a href=""><h3 id="evolucao">Desenvolvimento: Análise sua evolução.</h3></a>
+                    <a href=""><h3 id="evolucao">Sobre nós.</h3></a>
                     <hr/>
                 </div>    
                 <div class="texto">
-                    <p>Análise seus dados em seu jogo favorito e observe suas fraquezas, suas forças e o quanto melhorou com o passar do tempo e dos treinos. </p>
+                    <p> A String Academy é um projeto de amigos com o objetivo de disseminar o conhecimento relacionado ao mundo dos e-sports, com o objetivo de mostrar oportunidades e desenvolver o cenário competitivo nacional. </p>
                 </div> 
                 <br/>
-                <iframe width="600" height="500" src="https://www.youtube.com/embed/Comf5vc56zc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <img src="img/icons/logo_string.png"/>
                 <div></div>
             </div>
         </section>    
