@@ -53,24 +53,16 @@ class User_Service{
     
     public function cadastroUsuario($nome, $senha, $nick, $anoNasc,$email, $genero, $adm){
         $idade = date(Y) - $anoNasc;
-        
-        $cmd = $this->pdo->prepare("SELECT * FROM users WHERE email = $email");//QUERY PARA PROCURAR A PESSOA PELO EMAIL
-        $cmd->execute();//EXECUTA A QUERY
-        if($cmd->rowCount() > 0){//CONFERE SE O EMAIL JÁ FOI CADASTRADO 
-            return false;
             
-        }else{      
-            $cmd = $this->pdo->prepare("INSERT INTO users VALUES (default, :n, :i, MD5(:s), :e, :ni, :g, :ad)");
-            $cmd->bindValue(":n", $nome);
-            $cmd->bindValue(":i", $idade);
-            $cmd->bindValue(":s", $senha);
-            $cmd->bindValue(":e", $email);
-            $cmd->bindValue(":ni", $nick);
-            $cmd->bindValue(":g", $genero);
-            $cmd->bindValue(":ad", $adm);
-            $cmd->execute();
-            return true;
-        }
+        $cmd = $this->pdo->prepare("INSERT INTO users VALUES (default, :n, :i, MD5(:s), :e, :ni, :g, :ad)");
+        $cmd->bindValue(":n", $nome);
+        $cmd->bindValue(":i", $idade);
+        $cmd->bindValue(":s", $senha);
+        $cmd->bindValue(":e", $email);
+        $cmd->bindValue(":ni", $nick);
+        $cmd->bindValue(":g", $genero);
+        $cmd->bindValue(":ad", $adm);
+        $cmd->execute();
     }
     
 }
