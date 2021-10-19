@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="css/estilos.css">
         <link rel="icon" href="img/icons/Site_Icone.png"> 
         
-        <title>String Games</title>
+        <title>String Academy</title>
     </head>
     <body>
         <?php

@@ -8,4 +8,30 @@
     </nav>
 </div>
 
+<?php
+// PELOS MEUS TESTES A SESSÃO OU NÃO EXISTE OU CONSTA VAZIA INDEPENDENTE DO QUE ESTÁ NO BANCO DE DADOS
+
+    if (isset($_SESSION['adm'])) {
+        if ($_SESSION['adm'] == true) {//VERIFICA SE A PESSOA É UM ADMINISTRADOR E SE ESTÁ LOGADA
+            echo " <style type='text/css'>
+                    .add_aula {
+                        display:flex;
+                    }
+                    </style>";
+        } else {
+            echo " <style type='text/css'>
+                    .add_aula {
+                        display:none;
+                    }
+                    </style>";
+        }
+    } else {
+        echo " <style type='text/css'>
+                    .add_aula {
+                        display:none;
+                    }
+                    </style>";
+    }
+    ?>
+
 <div class="add_aula"><a><img src="img/adicionar.png" alt="add" id="add" onclick="document.getElementById('form-aulas').style.display='flex';document.getElementById('fechar2').style.display='block';"/></a><h4>Adicionar aula</h4></div>

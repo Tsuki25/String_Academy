@@ -25,49 +25,36 @@
         <section class="content">
             <article class="cadastro">
                 <p class="titulo">Cadastrar-se</p><br/>
-                <form method="get" action="">
+                <form method="POST" action="../controller/user_controller.php">
                     <label for="nome">Nome: </label><br/>
                     <input type="text" name="nome"/><br/>
                     <br/>
                     <label for="senha">Senha: </label><br/>
-                    <input type="text" name="senha"/><br/>
+                    <input type="password" name="senha"/><br/>
                     <br/>
                     <label for="nick">Nick: </label><br/>
                     <input type="text" name="nick"/><br/>
                     <br/>
                     <label for="anoNasc">Ano de nascimento: </label><br/>
-                    <input type="number" name="anoNasc" placeholder="4 Digitos"/><br/>
+                    <input type="number" name="anoNasc" size="4" max="2008" min="1940"/><br/>
                     <br/>
                     <label for="email">Email: </label><br/>
-                    <input type="text" name="email"/><br/>
+                    <input type="email" name="email"/><br/>
                     <br/>
                     <label for="genero">Genêro: </label><br/>
                     <fieldset>
-                        <input type="radio" name="genero" id="masc" value="homem"/>
+                        <input type="radio" name="genero" id="masc" value="masculino"/>
                         <label for="masc" class="opcoesGenero">Masculino</label><br/>
-                        <input type="radio" name="genero" id="fem" value="mulher"/>
+                        <input type="radio" name="genero" id="fem" value="feminino"/>
                         <label for="fem" class="opcoesGenero">Feminino</label><br/>
                         <input type="radio" name="genero" id="outro" value="outro"/>
                         <label for="outro" class="opcoesGenero">Outro</label><br/>
                     </fieldset><br/>
-                    <input type="submit" value="Cadastrar" id="cadastrar" class="btn-form"/>
+                    <input type="submit" value="Cadastrar" id="cadastrar" name="btn-cadastro" class="btn-form"/>
                 </form>
             </article>
-            
-            
-           <!-- <article class="login">
-                <p class="titulo">Entrar</p><br/>
-                <form method="get" action="">
-                    <label for="login">Login: </label><br/>
-                    <input type="text" name="login"/><br/>
-                    <br/>
-                    <label for="senha">Senha: </label><br/>
-                    <input type="text" name="senha"/>
-                    <br/>
-                    <input type="submit" value="Entrar" id="Entrar" class="btn-form"/>
-                </form>
-            </article>-->
-        </section> 
+           
+        </section>
         
         
         <?php
