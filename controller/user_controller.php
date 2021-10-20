@@ -15,7 +15,8 @@ if(isset($_POST['btn-cadastro'])){
     $adm = false;
     
     if(!empty($nome) && !empty($senha) && !empty($nick) && !empty($anoNasc) && !empty($email) && !empty($genero)){
-        if(!empty($user_service->buscarUser($email))){
+        $resp = $user_service->buscarUser($email);
+        if(!empty($resp)){
             echo " EMAIL JÁ CADASTRADO ";
         }else{
             $user_service->cadastroUsuario($nome, $senha, $nick, $anoNasc, $email, $genero, $adm);

@@ -28,7 +28,16 @@ class User_Service{
     public function buscarUser($email){
         $cmd = $this->pdo->prepare("SELECT * FROM users WHERE email = :e");
         $cmd->bindValue(":e", $email);
-        return $cmd->execute();
+        $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+    
+    public function buscarUserById($id){
+        $cmd = $this->pdo->prepare("SELECT * FROM users WHERE id_jogador = :id");
+        $cmd->bindValue(":id", $id);
+        $cmd->execute();
+        $res = $cmd->fetch(PDO::FETCH_ASSOC);
+        return $res;
     }
     
     public function login($email, $senha){//EU ACHO QUE AQUI É ONDE MORA O PROBLEMA, MAS JÁ TESTEI TODAS AS MINHAS IDEIAS E NADA FUNCIONA

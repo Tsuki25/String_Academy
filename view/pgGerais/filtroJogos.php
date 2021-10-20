@@ -4,7 +4,8 @@
         <li><a href="aulas.php?jogo_filtro=lol"><img src="img/LOL_icon.png" alt="LeagueOfLegends"/><span>LOL</span></a></li>
         <li><a href="aulas.php?jogo_filtro=lor"><img src="img/LOR_icon.png" alt="LegendsOfRuneterra"/><span>LOR</span></a></li>
         <li> <a href="aulas.php?jogo_filtro=r6"><img src="img/R6_icon.png" alt="RainbowSix"/><span>RB6</span></a></li>
-        <li id="filter" onclick="document.getElementById('filtro').style.display='flex';document.getElementById('fechar').style.display='block';"><a><img src="img/filter.png" alt="filter"/></a></li>
+        <!-- Retirando o filtro, se necessário descomente a proxima linha -->
+        <!--<li id="filter" onclick="document.getElementById('filtro').style.display='flex';document.getElementById('fechar').style.display='block';"><a><img src="img/filter.png" alt="filter"/></a></li>-->
     </nav>
 </div>
 

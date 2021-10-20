@@ -33,10 +33,10 @@
 .jogos li:hover{
     background-color: #2b0e37;
 }
-
+/* TIRANDO O FILTRO -> NECESSÁRIO DESCOMENTE
 .jogos li:last-child:hover{
     background-color: #2B0D51;
-}
+}*/
 
 .escolha_jogos img{
     height: 50px;
