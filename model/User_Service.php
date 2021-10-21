@@ -28,7 +28,8 @@ class User_Service{
     public function buscarUser($email){
         $cmd = $this->pdo->prepare("SELECT * FROM users WHERE email = :e");
         $cmd->bindValue(":e", $email);
-        $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
+        $cmd->execute();
+        $res = $cmd->fetch(PDO::FETCH_ASSOC);
         return $res;
     }
     
@@ -62,8 +63,8 @@ class User_Service{
     
     public function cadastroUsuario($nome, $senha, $nick, $anoNasc,$email, $genero, $adm){
         $idade = date(Y) - $anoNasc;
-            
-        $cmd = $this->pdo->prepare("INSERT INTO users VALUES (default, :n, :i, MD5(:s), :e, :ni, :g, :ad)");
+              
+        $cmd = $this->pdo->prepare("INSERT INTO users VALUES (default, :n, :i, MD5(:s), :e, :ni, :g, :ad, '', '')");
         $cmd->bindValue(":n", $nome);
         $cmd->bindValue(":i", $idade);
         $cmd->bindValue(":s", $senha);
@@ -71,6 +72,21 @@ class User_Service{
         $cmd->bindValue(":ni", $nick);
         $cmd->bindValue(":g", $genero);
         $cmd->bindValue(":ad", $adm);
+        $cmd->execute();
+    }
+    
+    public function atualizacaoDados($nome,$nick,$anoNasc,$email,$genero,$descricao, $id, $nome_imagem){
+        $idade = date(Y) - $anoNasc;
+              
+        $cmd = $this->pdo->prepare("UPDATE users SET nome = :n, idade = :i, email = :e, nick = :ni, genero = :g, descricao = :de, img_user = :img WHERE id_jogador = :id");
+        $cmd->bindValue(":n", $nome);
+        $cmd->bindValue(":i", $idade);
+        $cmd->bindValue(":e", $email);
+        $cmd->bindValue(":ni", $nick);
+        $cmd->bindValue(":g", $genero);
+        $cmd->bindValue(":de", $descricao);
+        $cmd->bindValue(":img", $nome_imagem);
+        $cmd->bindValue(":id", $id);
         $cmd->execute();
     }
     

@@ -1,0 +1,118 @@
+body{background-color: #311647;}
+*{margin:0; padding:0;font-size: 100%; box-sizing: border-box; font-family: 'Zen Dots', cursive;}
+nav, ul{list-style: none;}
+a{text-decoration: none; cursor:pointer; opacity: 0.8;}
+a:hover{opacity: 1; color: rgb(235, 176, 67);}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    margin: 0px auto;
+    margin-bottom: 10px;
+    background-color: #2B0D51;
+    padding: 50px 15px;
+}
+
+.user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user sub{color:#666666;}
+
+.user h3{padding: 3px; margin-top: 10px; color: #C716F7; text-align: center;}
+
+.img_profile{
+    border: solid black 6px;
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+}
+
+.img_profile img{width: 100%; height: 100%; border-radius: 100px;}
+
+.informacoes{
+    margin-top: 35px;
+    text-align: justify;
+    color: white;
+    font-size: 1.1em;
+    width: 60%;
+}
+
+.informacoes span{
+    color: #16f787;
+    font-size: 1.2em;
+}
+
+/* MENU DE ATUALIZAÇÃO DE DADOS */
+.atualizar-cadastro{
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    background-color:#311647;
+    color: rgb(235, 176, 67);
+    font-family: 'Zen Dots', cursive;
+    padding: 16px;
+    height: 100%;
+    width: 100%;
+}
+
+.atualizar-cadastro article{
+    flex-basis: 40%;
+    margin: 0px 15px;
+    padding: 25px 5% ;
+    background-color: #2B0D51;
+}
+
+.atualizar-cadastro label{
+    padding: 0;
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.titulo{
+    padding: 0;
+    margin: 0;
+    margin-top: 25px;
+    font-size: 1.8em;
+    color:#C716F7;
+    border-bottom: 2px solid #2B0D24;
+    text-align: center;
+}
+
+.btn-form {
+	background-color: #16f787;
+	border-radius: 4px; 
+	color: white;
+	padding: 12px 12px;
+        margin-top: 15px;
+        width: 98%;
+	text-transform: uppercase;
+	transition: all 0.5s;
+	cursor: pointer;
+        border-color: #16ac79;
+}
+
+.opcoesGenero{
+    color: white;  
+}
+
+.btn-form:hover{-webkit-transform: scale(1.07); transform: scale(1.07);}
+
+
+@media (min-width: 200px){
+    .content{width: 90%;}
+}
+@media (min-width: 405px){
+    .content{width: 70%;}
+}
+@media (min-width: 805px){
+    .content{width: 50%;}
+}
+@media (min-width: 1025px){
+    .content{width: 40%;}
+}

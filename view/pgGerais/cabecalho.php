@@ -21,7 +21,7 @@ session_start();
         </li>
         <li><a href="contato.php">CONTATO</a></li>
         <li><a onclick="document.getElementById('login-menu').style.display='flex';" class='fas fa-user-alt perfil' id="menuLg"></a></li>
-        <li><a href="user.php" class='fas fa-user-alt perfil' id="user-profile"></a></li>
+        <li><a href="../view/user_template.php" class='fas fa-user-alt perfil' id="user-profile"></a></li>
     </nav>
     
     <?php
