@@ -1,5 +1,6 @@
 # BANCO DO PROJETO
 
+~~~mysql
 CREATE DATABASE IF NOT EXISTS bd_vector_academy;
 
 use bd_vector_academy;
@@ -19,7 +20,10 @@ senha varchar(32) not null,
 email varchar(100) not null, 
 nick varchar(30) not null, 
 genero varchar(10) not null,
-adm boolean not null
+adm boolean not null,
+descricao text(240),
+img_user VARCHAR(120)
 )default charset utf8;
 
-insert into users values (default,"Rafas",17, md5(5678), "fael890@gmail.com", "fael890", "masculino", true);
+insert into users values (default,"Rafas",17, md5(5678), "fael890@gmail.com", "fael890", "masculino", true, "","");
+~~~
