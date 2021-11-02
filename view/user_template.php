@@ -62,6 +62,14 @@
                         .atualizar-cadastro{display: none;}
                     </style>";
             }
+            
+            if(isset($_GET['encerrar'])&& !empty($_GET['encerrar'])){//VERIFICA SE CLICOU NO EDITAR
+                $id_end = addslashes($_GET['encerrar']);
+                $user_service->apagarConta($id_end);
+                session_unset();//limpa a sessão
+                session_destroy();//destroi a sessão
+                header('Location: index.php');//redireciona para a index
+            }
         ?>
         
         <section class="content" id="profile">
@@ -81,6 +89,8 @@
                     <a id="alter_user" href="user_template.php?usuario=<?php echo "$id"; ?>">Editar </a>
                     |
                     <a id="Logout" href="../controller/logout.php"> Logout</a>
+                    |
+                    <a id="encerrar" href="user_template.php?encerrar=<?php echo "$id"; ?>">Encerrar Conta</a>
                 </sub>
             </article>
             

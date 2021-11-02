@@ -41,6 +41,7 @@ if(isset($_POST['btn-login'])){
         if(!empty($res)){//VERIFICA SE EXISTIR ALGUM REGISTRO COM ESSE LOGIN
             $senha = MD5($senha);//CRIPTOGRAFA A SENHA
             $user_service->login($email, $senha);
+            header('Location: ../view/user_template.php ');
         }else{//SE NÃO EXISTIR, ADICIONE UM ERRO A VARIAVEL
             echo "USUÁRIO NÃO ENCONTRADO";
         }

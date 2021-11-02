@@ -90,6 +90,12 @@ class User_Service{
         $cmd->execute();
     }
     
+    public function apagarConta($id) {
+        $cmd = $this->pdo->prepare("DELETE FROM users WHERE id_jogador = :id");//QUERY DO MYSLQ PARA EXCLUSÃO DE INSERÇÕES
+        $cmd->bindValue(":id",$id);
+        $cmd->execute();
+    }
+    
 }
 
 
