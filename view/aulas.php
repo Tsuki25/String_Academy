@@ -1,6 +1,6 @@
 <?php
     require_once '../model/VideoLoader.php';
-    $p = new VideoLoader("bd_Vector_Academy", "localhost", "root", "");
+    $video_loader = new VideoLoader("bd_Vector_Academy", "localhost", "root", "");
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,49 +27,34 @@
             include_once "pgGerais/filtroJogos.php";
         ?>
         
-        <?php
-        // ------------------------- CADASTRAR VIDEOS -----------------------------------
-            if(isset($_POST['titulo'])){// VERIFICA SE A PESSOA CLICKOU NO BOTÃO ADICIONAR AULA
-                //RECEBE OS VALORES DOS FORMULÁRIOS E ADICIONA-OS EM VARIAVEIS
-                $titulo = addslashes($_POST['titulo']); //A FUNÇÃO ADDSLASHES PROTEJE O CODIGO CONTRA CODIGOS MALICIOSOS
-                $url = addslashes($_POST['url']);
-                $jogo = addslashes($_POST['jogo']);
-                //VERIFICA SE TODOS OS CAMPOS FORAM PREENCHIDOS
-                if (!empty($titulo) && !empty($url) && !empty($jogo)) {
-                    $p->cadastrarVideos($titulo, $url, $jogo);
-                    header("Location: aulas.php");
-                }    
-            }    
-        // ----------------------------------------------------------------------------------
-        ?>
-        
         <!-- ESSE FILTRO É PARA SE TORNAR VARIAVEL DE ACORDO COM O JOGO  -->
         <section class="videos_filtros">
-            <?php include_once "pgGerais/filtroGeral.php"; ?>
+            <?php// include_once "pgGerais/filtroGeral.php"; ?>
             
             <article class="cadastro_aulas" id="form-aulas">
-                <form method="post">
-                    <a><img src="img/fechar.png" alt="fechar" id="fechar2" onclick="document.getElementById('form-aulas').style.display='none';document.getElementById('fechar2').style.display='none';"/></a>
-                    <h3 class>Adicionar Aula</h3> 
+                <form method="post" action="../controller/video_controller.php">
+                    <img src="img/fechar.png" alt="fechar" id="fechar" onclick="document.getElementById('form-aulas').style.display='none';document.getElementById('fechar').style.display='none';"/>
+                    <h3 class><?php if(isset($res)){echo 'Editar Aula';}else {echo 'Adicionar Aula';} ?></h3> 
                     <hr>
                     <label for="titulo">Titulo: </label><br/>
-                    <input type="text" name="titulo"/><br/>
+                    <input type="text" name="titulo" value=" <?php if(isset($res)){echo $res['titulo'];} ?>"/><br/>
                     <br/>
                     <label for="url">URL: </label><br/>
-                    <input type="text" name="url" placeholder="/X3V7yXiLe8A"/><br/>
+                    <input type="text" name="url" placeholder="/X3V7yXiLe8A" value="<?php if(isset($res)){ echo $res['url'];}?>"/><br/>
                     <br/>
                     <label for="jogo">Jogo: </label><br/>
                     <fieldset>
-                        <input type="radio" name="jogo" id="vlr" value="vlr"/>
+                        <input type="radio" name="jogo" id="vlr" value="vlr" <?php if(isset($res) && $res['jogo'] == "vlr"){echo "CHECKED";} ?>/>
                         <label for="vlr" class="opcoesGenero">Valorant</label><br/>
-                        <input type="radio" name="jogo" id="lol" value="lol"/>
+                        <input type="radio" name="jogo" id="lol" value="lol" <?php if(isset($res) && $res['jogo'] == "lol"){echo "CHECKED";} ?>/>
                         <label for="lol" class="opcoesGenero">LoL</label><br/>
-                        <input type="radio" name="jogo" id="lor" value="lor"/>
+                        <input type="radio" name="jogo" id="lor" value="lor" <?php if(isset($res) && $res['jogo'] == "lor"){echo "CHECKED";} ?>/>
                         <label for="lor" class="opcoesGenero">LoR</label><br/>
-                        <input type="radio" name="jogo" id="r6" value="r6"/>
+                        <input type="radio" name="jogo" id="r6" value="r6" <?php if(isset($res) && $res['jogo'] == "r6"){echo "CHECKED";} ?>/>
                         <label for="r6" class="opcoesGenero">R6</label><br/>
                     </fieldset><br/>
-                    <input type="submit" value="Enviar" id="filtrar" class="btn-busca"/>
+                    <?php if(isset($res)){echo "<input type='hidden' value='$id' name='id_video'/>";}?>
+                    <input name="<?php if(isset($res)){echo 'btn-editar';}else {echo 'btn-cadastrar';} ?>" type="submit" value="<?php if(isset($res)){echo 'Editar';}else {echo 'Cadastrar';} ?>" id="filtrar" class="btn-busca"/>
                 </form>
             </article>
 
@@ -87,7 +72,7 @@
                         $pg = 1;
                     }
                     
-                    $p->carregarVideos($jogo_filtro,9,$pg); //RECEBE OS VALORES DO BANCO DE DADOS PARA EXIBIR NA TELA 
+                    $video_loader->carregarVideos($jogo_filtro,9,$pg); //RECEBE OS VALORES DO BANCO DE DADOS PARA EXIBIR NA TELA 
                ?>
             </article>
         </section>

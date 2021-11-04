@@ -33,10 +33,10 @@
 .jogos li:hover{
     background-color: #2b0e37;
 }
-/* TIRANDO O FILTRO -> NECESSÁRIO DESCOMENTE
+
 .jogos li:last-child:hover{
     background-color: #2B0D51;
-}*/
+}
 
 .escolha_jogos img{
     height: 50px;
@@ -53,12 +53,11 @@
     background-color:#2B0D51;
     color: rgb(235, 176, 67);
     padding: 22px 24px;
-    top:75px;
-    right:49px;
     z-index: 2;
     border-radius: 20px;
 }
 
+#form-aulas h3{ text-align: center;}
 
 /* ----------------- CONTEUDO: VIDEOS e FILTRO --------------------- */
 .videos_filtros{
@@ -196,6 +195,7 @@
 
 
 
+
 /* ----------------- BREAKPOINTS --------------------- */
 @media (min-width: 200px){
     .jogos{justify-content: space-around; align-items: center;}
@@ -204,11 +204,11 @@
     .escolha_jogos img{height: 40px; width:40px; }
     #filter{display:block;}
     #filter img{height: 55px; width: 55px;}
-    
+
         /*   Videos e Filtro  */
     .videos_filtros .video{flex-basis: 100%;}
     .filtro{position:absolute;right: 50px; top: 50px; display:none;}
-    .cadastro_aulas{right: 100px;}
+    .cadastro_aulas{right: 39%; top: 210px;}/* ADICIONADO EM 03/11 -> TODOS OS MIDIAS COM ESSE NOME*/
 }
 @media (min-width: 405px){
     .jogos{justify-content: space-around;align-items: center;}
@@ -221,7 +221,7 @@
         /*   Videos e Filtro  */
     .videos_filtros .video{flex-basis: 100%;}
     .filtro{position:absolute;right: 50px; top: -15px; display:none;}
-    .cadastro_aulas{top:60px;}
+    .cadastro_aulas{right: 18%; top: -50px;} 
 }
 @media (min-width: 805px){
     .jogos{justify-content: center;align-items: center;}
@@ -233,12 +233,12 @@
     
         /*   Videos e Filtro  */
     .videos_filtros .video{flex-basis: 100%;}
-    .cadastro_aulas{top:70px;}
+    .cadastro_aulas{right: 34.5%; top: -50px;}
     
 }
 @media (min-width: 1025px){
     #filter{display:block;}
         /*   Videos e Filtro  */
     .videos_filtros .video{flex-basis: 100%;}
-    .cadastro_aulas{top:100px;}
+    .cadastro_aulas{right: 39%; top: -50px;}
 }
