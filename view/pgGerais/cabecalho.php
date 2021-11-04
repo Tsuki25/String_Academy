@@ -6,7 +6,7 @@ session_start();
 ?>
 
 <header>
-    <a href="index.php" ><img src="img/icons/logoVA.png" alt="String Games"></a>
+    <a href="index.php" ><img src="img/icons/logo_string.png" alt="String Games"></a>
     <nav>
         <li>
             <div class="dropdown">

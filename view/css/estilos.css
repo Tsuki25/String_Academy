@@ -18,7 +18,7 @@ header{
         background-color: #311647;
 }
 
-header img{width: 60px;}
+header img{width: 80px;}
 header nav{display: flex; }
 header li a {color:#16f787;}
 header li{margin: 0 15px;}
@@ -198,7 +198,7 @@ header li:last-child{margin-right: 0;}
 @media (min-width: 200px){
 	/* Header */
 	header {flex-direction: column;}
-	header img {margin-bottom: 15px; width: 75px;}
+	header img {margin-bottom: 15px; width: 80px;}
 
 	/* Banner */
 	.hero h1{font-size: 1.25rem;}
@@ -234,7 +234,7 @@ header li:last-child{margin-right: 0;}
 @media (min-width: 405px){
 	/* Header*/
 	header {flex-direction: column;}
-	header img {margin-bottom: 15px; width: 75px;}
+	header img {margin-bottom: 15px; width: 80px;}
 
 	/* Banner */
 	.hero h1{font-size: 1.5rem;}
@@ -266,7 +266,7 @@ header li:last-child{margin-right: 0;}
 @media (min-width: 805px){
 	/* Header*/
 	header {flex-direction: row;}
-	header img {margin-bottom: 15px; width: 75px;}
+	header img {margin-bottom: 15px; width: 80px;}
 
 	/* Banner */
 	.hero h1{font-size: 2rem;}

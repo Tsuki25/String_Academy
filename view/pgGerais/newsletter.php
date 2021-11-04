@@ -12,5 +12,5 @@
         <li><a href="https://twitter.com">Twitter</a></li>
         <li><a href="https://www.instagram.com">Instagram</a></li>
     </ul>
-    <a href="index.php" ><img src="img/icons/logoVA.png" id="imagem" alt="String Games"></a>
+    <a href="index.php" ><img src="img/icons/logo_string.png" id="imagem" alt="String Games"></a>
 </section>     

@@ -5,7 +5,7 @@
         <input type="text" name="email" placeholder="Email"/><br/>
         <br/>
         <label for="senha">Senha: </label><br/>
-        <input type="password" name="senha"/>
+        <input type="password" name="senha" placeholder="Senha"/>
         <br/>
         <input type="submit" value="Entrar" id="Entrar" name="btn-login" class="btn-form"/>
         <input type="button" value="Fechar" id="Fechar" class="btn-form sair" onclick="document.getElementById('login-menu').style.display='none';"/>
