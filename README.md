@@ -10,7 +10,7 @@ id_video int(11) auto_increment primary key,
 titulo varchar(70) not null,
 url varchar(15) not null, 
 jogo varchar(3) not null
-) default charset utf8;
+)default charset utf8;
 
 CREATE TABLE IF NOT EXISTS users(
 id_jogador int(11) auto_increment primary key, 
@@ -23,6 +23,14 @@ genero varchar(10) not null,
 adm boolean not null,
 descricao text(240),
 img_user VARCHAR(120)
+)default charset utf8;
+
+CREATE TABLE IF NOT EXISTS campeonatos(
+id_campeonato int(11) auto_increment primary key,
+titulo varchar(100) not null,
+premio varchar(4) not null,
+descricao varchar(400) not null,
+jogo varchar(3) not null
 )default charset utf8;
 
 insert into users values (default,"Rafas",17, md5(5678), "fael890@gmail.com", "fael890", "masculino", true, "","");
