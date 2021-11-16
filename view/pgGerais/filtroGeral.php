@@ -1,7 +1,7 @@
 <article class="filtro" id="filtro">
     <form method="get" action="">
         <a><img src="img/fechar.png" alt="fechar" id="fechar" onclick="document.getElementById('filtro').style.display='none';document.getElementById('fechar').style.display='none';"/></a>
-        <h3 class>Filtar:</h3> 
+        <h3 class>Filtrar:</h3> 
         <hr>
         <input type="checkbox" id="todos" name="todos" value="Todos" checked>
         <label for="todos"> Todos</label><br>

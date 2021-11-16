@@ -15,7 +15,7 @@ header{
 	justify-content: space-between;
 	align-items: center;
 	padding: 20px 50px;
-        background-color: #311647;
+    background-color: #1D0033;
 }
 
 header img{width: 80px;}
@@ -123,7 +123,7 @@ header li:last-child{margin-right: 0;}
 	align-items: stretch;
 	width: 100%;
 	background-color: #311647;
-        margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .conteudoPT2{

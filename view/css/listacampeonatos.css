@@ -1,0 +1,260 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+}
+
+section {
+    width: 98vw;
+    display: grid;   
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Filtro de escolha de jogos */
+.escolha_jogos{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color:#2B0D51;
+}
+
+.jogos{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.jogos li{
+    flex-shrink: 1;
+    flex-basis: 15%;
+    padding: 12px 16px;
+}
+
+.jogos span{
+    font-size: 1.3rem;
+    color: white;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.jogos li:hover{
+    background-color: #2b0e37;
+}
+
+.jogos li:last-child:hover{
+    background-color: #2B0D51;
+}
+
+.escolha_jogos img{
+    height: 50px;
+    width:50px;
+}
+
+/*Adicionar Campeonatos*/
+
+.cadastro_aulas{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:#2B0D51;
+    color: rgb(235, 176, 67);
+    padding: 22px 24px;
+    top:75px;
+    right:49px;
+    z-index: 2;
+    border-radius: 20px;
+}
+
+.videos_filtros{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 12px 16px;
+    margin: 0;
+}
+
+.videos_filtros{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 12px 16px;
+    margin: 0;
+}
+
+.videos_filtros .video{flex-basis: 80%;}
+
+.filtro{
+    background-color: rgb(235, 176, 67);
+    color: white;
+    margin: 15px;
+    padding: 12px 16px;
+    border-radius: 15px;
+}
+
+.filtro h3{
+    font-size: 1.5em;
+    color: #C716F7;
+    padding: 0px;
+    margin: 0;
+    text-align: center;
+}
+
+.filtro hr{
+    margin: 8px;
+    color: #2B0D24;
+    width: 90%;
+    height: 3px;
+}
+
+#fechar{
+    height: 25px;
+    width: 25px;
+    display:none;
+    position: absolute;
+    top:10px;
+    right: 10px;
+}
+
+#fechar2{
+    height: 25px;
+    width: 25px;
+    display:none;
+    position: absolute;
+    top:5px;
+    right:5px;
+}
+
+.add_aula{
+    display: flex;
+    justify-content:flex-end;
+    align-items: flex-end;
+    height: 60px;
+    width: 100%;
+    
+}
+
+.add_aula h4{color: white; font-size: 1.2rem;margin-right: 15px;}
+
+
+#add{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-left: 0px;
+    opacity:1;
+    /*float: right;*/
+}
+
+#add:hover{
+    opacity: 1.5;
+}
+
+.btn-busca{
+    background-color: #16f787;
+    border-radius: 4px; 
+    color: white;
+    padding: 12px 12px;
+    width: 45%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #168256;
+}
+
+.btn-busca:hover{
+    background-color: #168256;
+    border: 1px solid #16f787;
+}
+
+#caixa_busca{width: 60%;}
+
+
+.video{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 12px 16px;
+    color:#16f787;
+}
+
+.video .video_aulas{flex-basis: 25%; flex-shrink: 1;}
+.video_aulas{
+    margin-bottom: 25px;
+    margin-top: 25px;
+    text-align: left;
+}
+
+.video .paginacao{flex-basis: 70%; flex-shrink: 1;}
+.paginacao{
+    margin-bottom: 25px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.video_aulas h5{
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+/* CARDS */
+
+.card {
+    overflow: hidden;
+    width: 20rem;
+
+}
+
+.card h3{
+
+    color: white;
+    font-size: 20px;
+}
+
+.card li{
+    font-family: 'Zen Dots', cursive;
+    color: yellow;
+    font-size: 15px;
+}
+
+.card img{
+    image-rendering: auto;
+    width: auto;
+    height: auto;
+    background-size: cover;
+}
+
+
+/* Button */
+
+.btn-bg {
+    background-color: #ff0000;
+    color: #fff;
+}
+
+.btn-bg:hover {
+    color: #fff;
+}
+
+.btn-bg:focus {
+    box-shadow: 0 0 0 0.25rem #ff00003f;
+}
+
+sub#alter_videos{
+
+    color: white;
+    
+}
