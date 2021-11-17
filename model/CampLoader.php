@@ -27,13 +27,7 @@ class CampLoader {
     }
     
     public function cadastrarCampeonato($titulo, $premio,$descricao, $jogo){
-        $cmd = $this->pdo->prepare("SELECT id_campeonato FROM campeonatos WHERE jogo = :u");//QUERY PARA PROCURAR A PESSOA PELO EMAIL
-        $cmd->bindValue(":u", $jogo);//SUBSTITUI :u PELO JOGO PASSADO COMO PARAMETRO
-        $cmd->execute();//EXECUTA A QUERY
-        if($cmd->rowCount() > 0){//CONFERE SE O CAMPEONATO JÁ FOI CADASTRADO ANTERIORMENTE
-            return false;//CAMPEONATOS JÁ CADASTRADO NÃO SÃO CADASTRADOS NOVAMENTE
-            
-        }else{//CAMPEONATO NÃO FOI ENCONTRADO NO BANCO
+               
             $cmd = $this->pdo->prepare("INSERT INTO campeonatos(titulo, premio, descricao, jogo) VALUES (:t, :u, :d, :j)");//QUERY PARA O CADASTRO
             $cmd->bindValue(":t", $titulo);
             $cmd->bindValue(":u", $premio);
@@ -43,8 +37,7 @@ class CampLoader {
             $cmd->execute();
             return true;//NOVO CADASTRO REALIZADO
         }
-    }
-
+        
     public function atualizarCampeonatos($titulo, $premio, $descricao, $jogo, $id_campeonato){// ADICIONADO EM 03/11
         $cmd = $this->pdo->prepare("UPDATE campeonatos SET titulo = :t, premio = :u, descricao = :d, jogo = :j WHERE id_campeonato = :id");
         $cmd->bindValue(":t", $titulo);
@@ -80,23 +73,20 @@ class CampLoader {
                             <img src='img/zed.png'/>
                              <div class='card-body'>
                               <h3 class='card-title'>$titulo</h3>
-                               <p class='card-text'>$descricao</p>
-                                <a href='campeonato.php' class='btn btn-bg'>Inscrever-se</a>
-                             </div>
-                            </div>";
-
-                        if (isset($_SESSION['adm']) && $_SESSION['adm'] == true){ //MOSTRA APENAS PARA ADMS  
+                               <p class='card-text'>$descricao</p>                 
+                                <a href='campeonato.php' class='btn btn-bg'>Inscrever-se</a>";
+            if (isset($_SESSION['adm']) && $_SESSION['adm'] == true){ //MOSTRA APENAS PARA ADMS  
                             echo "<sub id='alter_videos'>
                                     <a id='alter_aula' href='listacampeonatos.php?campeonato=$id_campeonato'/>Editar </a>
                                     |
                                     <a id='apagar' href='listacampeonatos.php?excluir=$id_campeonato'> Excluir</a>
-                                </sub>";
-                        } 
-                    echo "</div>";
+                                  </sub>";
+                        }                           
+                            echo "</div></div>";               
                 }
             }
             
-            $total = $this->pdo->prepare( "SELECT * FROM Video_Aulas WHERE jogo = '$jogo';");
+            $total = $this->pdo->prepare( "SELECT * FROM campeonatos WHERE jogo = '$jogo';");
             $total->execute();
             $tp = $total->rowCount()/$reg_pag;
             $tp = ceil($tp);
@@ -144,20 +134,16 @@ class CampLoader {
                             <img src='img/zed.png'/>
                              <div class='card-body'>
                               <h3 class='card-title'>$titulo</h3>
-                               <p class='card-text'>$descricao</p>
-                                <a href='campeonato.php' class='btn btn-bg'>Inscrever-se</a>
-                             </div>
-                            </div>";
-
-                        if (isset($_SESSION['adm']) && $_SESSION['adm'] == true){ //MOSTRA APENAS PARA ADMS  
+                               <p class='card-text'>$descricao</p>                 
+                                <a href='campeonato.php' class='btn btn-bg'>Inscrever-se</a>";
+            if (isset($_SESSION['adm']) && $_SESSION['adm'] == true){ //MOSTRA APENAS PARA ADMS  
                             echo "<sub id='alter_videos'>
                                     <a id='alter_aula' href='listacampeonatos.php?campeonato=$id_campeonato'/>Editar </a>
                                     |
                                     <a id='apagar' href='listacampeonatos.php?excluir=$id_campeonato'> Excluir</a>
-                                </sub>";
-                        } 
-                        
-                    echo "</div>";
+                                  </sub>";
+                        }                           
+                            echo "</div></div>";
                 }
             }
             

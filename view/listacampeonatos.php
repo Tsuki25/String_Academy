@@ -82,9 +82,8 @@
                 </form>
             </article>
         </section>
-        <section>
+        <section class="video">
         <?php
-
             $jogo_filtro = '';
             if(isset($_GET['jogo_filtro'])) {//SE A PESSOA CLICKOU NO BOTÃO EDITAR
                 $jogo_filtro = addslashes($_GET['jogo_filtro']);//PEGA O VALOR PASSADO PELO BOTÃO EDITAR SELECIONADO

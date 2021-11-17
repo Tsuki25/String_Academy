@@ -181,14 +181,11 @@ section {
 #caixa_busca{width: 60%;}
 
 
-.video{
-    width: 100%;
-    display: flex;
+.video{   
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 12px 16px;
-    color:#16f787;
+    padding: 12px 16px; 
 }
 
 .video .video_aulas{flex-basis: 25%; flex-shrink: 1;}
@@ -198,10 +195,10 @@ section {
     text-align: left;
 }
 
-.video .paginacao{flex-basis: 70%; flex-shrink: 1;}
+.video .paginacao{width: 100%;}
 .paginacao{
-    margin-bottom: 25px;
-    margin-top: 25px;
+    margin-bottom: 50px;
+    margin-top: 50%;
     text-align: center;
 }
 
@@ -215,7 +212,6 @@ section {
 .card {
     overflow: hidden;
     width: 20rem;
-
 }
 
 .card h3{
