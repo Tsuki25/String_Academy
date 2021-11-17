@@ -54,7 +54,7 @@
                     <hr/>
                 </div>    
                 <div class="texto">
-                    <p>Na Vector Academy você terá a oportunidade de ter aulas sobre seus jogos favoritos, com especialistas e jogadores profissionais relacionados aos mais diversos aspectos do jogo. </p>
+                    <p>Na String Academy você terá a oportunidade de ter aulas sobre seus jogos favoritos, com especialistas e jogadores profissionais relacionados aos mais diversos aspectos do jogo. </p>
                 </div> 
                 <br/>
                 <iframe width="600" height="500" src="https://www.youtube.com/embed/oDQcKJttn3Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

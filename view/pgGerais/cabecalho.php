@@ -14,7 +14,7 @@ session_start();
                 <div class="drop-conteudo">
                     <ul>
                         <li><a href="aulas.php" id="valorant">Aulas</a></li>
-                        <li><a href="campeonato.php">Campeonatos</a></li>
+                        <li><a href="listacampeonatos.php">Campeonatos</a></li>
                     </ul>
                 </div>
             </div>
