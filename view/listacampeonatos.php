@@ -57,8 +57,6 @@
                     <a><img src="img/fechar.png" alt="fechar" id="fechar2" onclick="document.getElementById('form-aulas').style.display='none';document.getElementById('fechar2').style.display='none';"/></a>
                     <h3 class>Adicionar Campeonato</h3> 
                     <hr>
-                    <label for="imagem">Imagem: </label><br>
-                    <input type="file" name="imagem" class="hidden"><br>
                     <label for="titulo">Titulo: </label><br>
                     <input type="text" name="titulo"/><br>              
                     <label for="premio">Premio: </label><br>

@@ -26,10 +26,9 @@ class CampLoader {
         return $res;
     }
     
-    public function cadastrarCampeonato($imagem,$titulo, $premio, $descricao, $jogo){
+    public function cadastrarCampeonato($titulo, $premio, $descricao, $jogo){
                
-            $cmd = $this->pdo->prepare("INSERT INTO campeonatos(imagem, titulo, premio, descricao, jogo) VALUES (:i, :t, :u, :d, :j)");//QUERY PARA O CADASTRO
-            $cmd->bindValue(":i", $imagem);
+            $cmd = $this->pdo->prepare("INSERT INTO campeonatos(titulo, premio, descricao, jogo) VALUES (:t, :u, :d, :j)");//QUERY PARA O CADASTRO
             $cmd->bindValue(":t", $titulo);
             $cmd->bindValue(":u", $premio);
             $cmd->bindValue(":d", $descricao);
@@ -39,9 +38,8 @@ class CampLoader {
             return true;//NOVO CADASTRO REALIZADO
         }
 
-    public function atualizarCampeonatos($imagem, $titulo, $premio, $descricao, $jogo, $id_campeonato){// ADICIONADO EM 03/11
-        $cmd = $this->pdo->prepare("UPDATE campeonatos SET imagem = :i, titulo = :t, premio = :u, descricao = :d, jogo = :j WHERE id_campeonato = :id");
-        $cmd->bindValue(":i", $imagem);
+    public function atualizarCampeonatos($titulo, $premio, $descricao, $jogo, $id_campeonato){// ADICIONADO EM 03/11
+        $cmd = $this->pdo->prepare("UPDATE campeonatos SET titulo = :t, premio = :u, descricao = :d, jogo = :j WHERE id_campeonato = :id");    
         $cmd->bindValue(":t", $titulo);
         $cmd->bindValue(":u", $premio);
         $cmd->bindValue(":d", $descricao);
@@ -61,22 +59,23 @@ class CampLoader {
     $inicio = ($pg - 1) * $reg_pag;
     
         if (!empty($jogo)){
-            $cmd = $this->pdo->prepare( "SELECT id_campeonato, imagem, titulo, premio, descricao FROM campeonatos WHERE jogo = :j LIMIT $inicio,$reg_pag;");//PEGA OS VIDEOS POR CATEGORIA
+            $cmd = $this->pdo->prepare( "SELECT id_campeonato, jogo, titulo, premio, descricao FROM campeonatos WHERE jogo = :j LIMIT $inicio,$reg_pag;");//PEGA OS VIDEOS POR CATEGORIA
             $cmd->bindValue(":j", $jogo);
             $cmd->execute();
             
             if ($cmd->rowCount()>0) {//Enquanto tiverem linhas na tabela
-                foreach($cmd as $res){
-                    $imagem = $res['imagem'];
+                foreach($cmd as $res){            
                     $titulo = $res['titulo'];
                     $premio = $res['premio'];
+                    $jogo = $res['jogo'];
                     $descricao = $res['descricao'];
                     $id_campeonato = $res['id_campeonato'];// --> 03/11
                     echo " <div class='card border-0.5'>
-                            <img src='../img/$imagem'/>
+                            <img src='../view/img/$jogo.png'/>
                              <div class='card-body'>
                               <h3 class='card-title'>$titulo</h3>
-                               <p class='card-text'>$descricao</p>                 
+                               <p class='card-text'>$descricao</p>
+                                <p class='card-text'>R$ $premio</p>                 
                                 <a href='campeonato.php' class='btn btn-bg'>Inscrever-se</a>";
             if (isset($_SESSION['adm']) && $_SESSION['adm'] == true){ //MOSTRA APENAS PARA ADMS  
                             echo "<sub id='alter_videos'>
@@ -124,22 +123,23 @@ class CampLoader {
             }
             
         }else{
-            $cmd = $this->pdo->prepare( "SELECT id_campeonato, imagem, titulo, premio, descricao FROM campeonatos LIMIT $inicio,$reg_pag;");//PEGA TODOS OS VIDEOS
+            $cmd = $this->pdo->prepare( "SELECT id_campeonato, jogo, titulo, premio, descricao FROM campeonatos LIMIT $inicio,$reg_pag;");//PEGA TODOS OS VIDEOS
             $cmd->execute();
                        
             if ($cmd->rowCount()>0) {//Enquanto tiverem linhas na tabela
                 foreach($cmd as $res){
-                    $imagem = $res['imagem'];
+                    $jogo = $res['jogo'];
                     $titulo = $res['titulo'];
                     $premio = $res['premio'];
                     $descricao = $res['descricao'];
                     $id_campeonato = $res['id_campeonato'];
                     echo " <div class='card border-0.5'>
-                            <img src='../img/$imagem'/>
+                            <img src='../view/img/$jogo.png'/>
                              <div class='card-body'>
                               <h3 class='card-title'>$titulo</h3>
-                               <p class='card-text'>$descricao</p>                 
-                                <a href='campeonato.php' class='btn btn-bg'>Inscrever-se</a>";
+                               <p class='card-text'>$descricao</p>
+                                <p class='card-text'>R$ $premio</p>                  
+                                 <a href='campeonato.php' class='btn btn-bg'>Inscrever-se</a>";
             if (isset($_SESSION['adm']) && $_SESSION['adm'] == true){ //MOSTRA APENAS PARA ADMS  
                             echo "<sub id='alter_videos'>
                                     <a id='alter_aula' href='listacampeonatos.php?campeonato=$id_campeonato'/>Editar </a>
