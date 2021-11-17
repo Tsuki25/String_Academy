@@ -26,9 +26,10 @@ class CampLoader {
         return $res;
     }
     
-    public function cadastrarCampeonato($titulo, $premio,$descricao, $jogo){
+    public function cadastrarCampeonato($imagem,$titulo, $premio, $descricao, $jogo){
                
-            $cmd = $this->pdo->prepare("INSERT INTO campeonatos(titulo, premio, descricao, jogo) VALUES (:t, :u, :d, :j)");//QUERY PARA O CADASTRO
+            $cmd = $this->pdo->prepare("INSERT INTO campeonatos(imagem, titulo, premio, descricao, jogo) VALUES (:i, :t, :u, :d, :j)");//QUERY PARA O CADASTRO
+            $cmd->bindValue(":i", $imagem);
             $cmd->bindValue(":t", $titulo);
             $cmd->bindValue(":u", $premio);
             $cmd->bindValue(":d", $descricao);
@@ -37,9 +38,10 @@ class CampLoader {
             $cmd->execute();
             return true;//NOVO CADASTRO REALIZADO
         }
-        
-    public function atualizarCampeonatos($titulo, $premio, $descricao, $jogo, $id_campeonato){// ADICIONADO EM 03/11
-        $cmd = $this->pdo->prepare("UPDATE campeonatos SET titulo = :t, premio = :u, descricao = :d, jogo = :j WHERE id_campeonato = :id");
+
+    public function atualizarCampeonatos($imagem, $titulo, $premio, $descricao, $jogo, $id_campeonato){// ADICIONADO EM 03/11
+        $cmd = $this->pdo->prepare("UPDATE campeonatos SET imagem = :i, titulo = :t, premio = :u, descricao = :d, jogo = :j WHERE id_campeonato = :id");
+        $cmd->bindValue(":i", $imagem);
         $cmd->bindValue(":t", $titulo);
         $cmd->bindValue(":u", $premio);
         $cmd->bindValue(":d", $descricao);
@@ -59,18 +61,19 @@ class CampLoader {
     $inicio = ($pg - 1) * $reg_pag;
     
         if (!empty($jogo)){
-            $cmd = $this->pdo->prepare( "SELECT id_campeonato, titulo, premio, descricao FROM campeonatos WHERE jogo = :j LIMIT $inicio,$reg_pag;");//PEGA OS VIDEOS POR CATEGORIA
+            $cmd = $this->pdo->prepare( "SELECT id_campeonato, imagem, titulo, premio, descricao FROM campeonatos WHERE jogo = :j LIMIT $inicio,$reg_pag;");//PEGA OS VIDEOS POR CATEGORIA
             $cmd->bindValue(":j", $jogo);
             $cmd->execute();
             
             if ($cmd->rowCount()>0) {//Enquanto tiverem linhas na tabela
                 foreach($cmd as $res){
+                    $imagem = $res['imagem'];
                     $titulo = $res['titulo'];
                     $premio = $res['premio'];
                     $descricao = $res['descricao'];
                     $id_campeonato = $res['id_campeonato'];// --> 03/11
                     echo " <div class='card border-0.5'>
-                            <img src='img/zed.png'/>
+                            <img src='../img/$imagem'/>
                              <div class='card-body'>
                               <h3 class='card-title'>$titulo</h3>
                                <p class='card-text'>$descricao</p>                 
@@ -121,17 +124,18 @@ class CampLoader {
             }
             
         }else{
-            $cmd = $this->pdo->prepare( "SELECT id_campeonato, titulo, premio, descricao FROM campeonatos LIMIT $inicio,$reg_pag;");//PEGA TODOS OS VIDEOS
+            $cmd = $this->pdo->prepare( "SELECT id_campeonato, imagem, titulo, premio, descricao FROM campeonatos LIMIT $inicio,$reg_pag;");//PEGA TODOS OS VIDEOS
             $cmd->execute();
                        
             if ($cmd->rowCount()>0) {//Enquanto tiverem linhas na tabela
                 foreach($cmd as $res){
+                    $imagem = $res['imagem'];
                     $titulo = $res['titulo'];
                     $premio = $res['premio'];
                     $descricao = $res['descricao'];
                     $id_campeonato = $res['id_campeonato'];
                     echo " <div class='card border-0.5'>
-                            <img src='img/zed.png'/>
+                            <img src='../img/$imagem'/>
                              <div class='card-body'>
                               <h3 class='card-title'>$titulo</h3>
                                <p class='card-text'>$descricao</p>                 

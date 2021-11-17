@@ -6,14 +6,15 @@ session_start();
 // ------------------------- CADASTRAR VIDEOS -----------------------------------
 if (isset($_POST['btn-cadastrar'])) {// VERIFICA SE A PESSOA CLICKOU NO BOTÃO ADICIONAR AULA
     //RECEBE OS VALORES DOS FORMULÁRIOS E ADICIONA-OS EM VARIAVEIS
+    $imagem = $_FILES['imagem'];
     $titulo = addslashes($_POST['titulo']); //A FUNÇÃO ADDSLASHES PROTEJE O CODIGO CONTRA CODIGOS MALICIOSOS
     $premio = addslashes($_POST['premio']);
     $descricao = addslashes($_POST['descricao']);
     $jogo = addslashes($_POST['jogo']);
     //VERIFICA SE TODOS OS CAMPOS FORAM PREENCHIDOS
-    if (!empty($titulo) && !empty($premio) && !empty($descricao) && !empty($jogo)) {
+    if (!empty($titulo) && !empty($premio) && !empty($descricao) && !empty($imagem) && !empty($jogo)) {
 
-        $camp_service->cadastrarCampeonato($titulo, $premio, $descricao, $jogo);
+        $camp_service->cadastrarCampeonato($imagem, $titulo, $premio, $descricao, $jogo);
         header("Location: ../view/listacampeonatos.php");
     }else{
         echo "PREENCHA TODOS OS DADOS";
@@ -25,18 +26,19 @@ if (isset($_POST['btn-cadastrar'])) {// VERIFICA SE A PESSOA CLICKOU NO BOTÃO A
 // ------------------------- EDITAR VIDEOS -----------------------------------
 if (isset($_POST['btn-editar'])) {// VERIFICA SE A PESSOA CLICKOU NO BOTÃO ADICIONAR AULA
     //RECEBE OS VALORES DOS FORMULÁRIOS E ADICIONA-OS EM VARIAVEIS
+    $imagem = addslashes($_POST['imagem']);
     $titulo = addslashes($_POST['titulo']); //A FUNÇÃO ADDSLASHES PROTEJE O CODIGO CONTRA CODIGOS MALICIOSOS
     $premio = addslashes($_POST['premio']);
     $descricao = addcslashes($_POST['descricao']);
     $jogo = addslashes($_POST['jogo']);
     $id_campeonato = addslashes($_POST['id_campeonato']);
     //VERIFICA SE TODOS OS CAMPOS FORAM PREENCHIDOS
-    if (!empty($titulo) && !empty($premio) && !empty($descricao) && !empty($jogo)) {
+    if (!empty($titulo) && !empty($premio) && !empty($descricao) && !empty($imagem) && !empty($jogo)) {
         $res = $camp_service->buscarCampById($id_campeonato);
         if(!empty($res) && $res['id_campeonato'] != $id_campeonato){
             echo "ALTERAÇÃO DO CAMPEONATO INDISPONIVEL, CAMPEONATO JÁ CADASTRADO";
         }else{
-            $camp_service->atualizarCampeonato($titulo, $premio, $descricao, $jogo, $id_campeonato);
+            $camp_service->atualizarCampeonato($imagem, $titulo, $premio, $descricao, $jogo, $id_campeonato);
             header("Location: ../view/listacampeonatos.php");
         }
         echo "PREENCHA TODOS OS DADOS";
